@@ -4,6 +4,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.nttdata.patrones.builder.Monitor;
+import com.nttdata.patrones.builder.MonitorBuilder;
 import com.nttdata.patrones.prototype.Casa;
 import com.nttdata.patrones.prototype.CasaModificada;
 import com.nttdata.patrones.singleton.Coche;
@@ -40,6 +42,23 @@ public class PatronesApplication implements CommandLineRunner {
 		casa2.setDireccion("Calle principal, 15");
 		casa2.setTamano(70);
 		System.out.println(casa2.verCasa());
+		
+		
+		
+		//Builder
+		
+		MonitorBuilder builder = new MonitorBuilder();
+
+        Monitor monitor = builder
+                .conPrecio(50)
+                .conPulgadas(40)
+                .conMarca("Sony")
+                .build();
+
+        System.out.println(monitor.getMarca());
+        System.out.println(monitor.getPrecio());
+        System.out.println(monitor.getPulgadas());
+		
 		
 	}
 
